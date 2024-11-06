@@ -3,7 +3,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Links from "./Links";
 import { Link as ScrollLink } from "react-scroll";
-import data from "../../../data/Portfolio/data";
+import data from "../../../data";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +35,7 @@ const HamburgerMenu = () => {
             className="w-8 h-1 dark:bg-white  bg-black rounded transition-all duration-300 ease-in-out"
           />
         </button>
-        <div className="flex flex-row gap-4 justify-center items-center  ">
+        <div className="fixed flex flex-row gap-4 justify-center items-center  ">
           <Links></Links>
         </div>
       </div>
@@ -55,25 +55,28 @@ const HamburgerMenu = () => {
     </>
   );
 };
-function ContentOfSideBar({ onChildClick }: { onChildClick: any }) {
+function ContentOfSideBar({ onChildClick }: { onChildClick: () => void }) {
   return (
     <>
       <div className="h-5/6 shadow-lg dark:border-none border border-slate-300 xl:text-xl lg:text-2xl  m-4 mt-0  rounded-lg font-semibold font-sans sm:text-xl text-xl w-full   bg-Primary_light dark:bg-Primary_dark  flex justify-center items-center flex-col gap-16">
-        <button
-          onClick={onChildClick}
-          className="transform hover:scale-125 transition-transform duration-100"
-        >
-          <ScrollLink
-            to="home"
-            smooth={true}
-            duration={500}
-            className="cursor-pointer"
+        {data.Hero.name.length > 0 && (
+          <button
             onClick={onChildClick}
+            className="transform hover:scale-125 transition-transform duration-100"
           >
-            Home
-          </ScrollLink>
-        </button>
-        {data.Work.length > 0 && (
+            <ScrollLink
+              to="home"
+              smooth={true}
+              duration={500}
+              className="cursor-pointer"
+              onClick={onChildClick}
+            >
+              Home
+            </ScrollLink>
+          </button>
+        )}
+
+        {data.Work.map((work) => work.title.length).at(0) ? (
           <button
             onClick={onChildClick}
             className="transform hover:scale-125 transition-transform duration-100"
@@ -88,8 +91,8 @@ function ContentOfSideBar({ onChildClick }: { onChildClick: any }) {
               Work
             </ScrollLink>
           </button>
-        )}
-        {data.projectData.length > 0 && (
+        ) : null}
+        {data.projectData.map((projects) => projects.title.length).at(0) ? (
           <button
             onClick={onChildClick}
             className="transform hover:scale-125 transition-transform duration-100"
@@ -104,36 +107,46 @@ function ContentOfSideBar({ onChildClick }: { onChildClick: any }) {
               Projects
             </ScrollLink>
           </button>
-        )}
+        ) : null}
 
-        <button
-          onClick={onChildClick}
-          className="transform hover:scale-125 transition-transform duration-100"
-        >
-          <ScrollLink
-            to="about"
-            smooth={true}
-            duration={500}
-            className="cursor-pointer"
+        {data.aboutData.description.length ||
+        data.aboutData.personalDetails.email ||
+        data.aboutData.personalDetails.location.length > 0 ||
+        data.aboutData.skills.map((skill) => skill.length).at(0) ? (
+          <button
             onClick={onChildClick}
+            className="transform hover:scale-125 transition-transform duration-100"
           >
-            About
-          </ScrollLink>
-        </button>
-        <button
-          onClick={onChildClick}
-          className="transform hover:scale-125 transition-transform duration-100"
-        >
-          <ScrollLink
-            to="contact"
-            smooth={true}
-            duration={500}
-            className="cursor-pointer"
+            <ScrollLink
+              to="about"
+              smooth={true}
+              duration={500}
+              className="cursor-pointer"
+              onClick={onChildClick}
+            >
+              About
+            </ScrollLink>
+          </button>
+        ) : null}
+        {data.contact.Email.length ||
+        data.contact.Github.length ||
+        data.contact.LinkedIn.length ||
+        data.contact.Twitter.length > 0 ? (
+          <button
             onClick={onChildClick}
+            className="transform hover:scale-125 transition-transform duration-100"
           >
-            Contact{" "}
-          </ScrollLink>
-        </button>
+            <ScrollLink
+              to="contact"
+              smooth={true}
+              duration={500}
+              className="cursor-pointer"
+              onClick={onChildClick}
+            >
+              Contact{" "}
+            </ScrollLink>
+          </button>
+        ) : null}
       </div>
     </>
   );

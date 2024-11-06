@@ -1,5 +1,5 @@
 import Image from "next/image";
-import data from "../../../data/Portfolio/data";
+import data from "../../../data";
 const Hero = () => {
   let image = false;
   if (data.Hero.image.length > 0) {

@@ -1,4 +1,4 @@
-import data from "../../../data/Portfolio/data";
+import data from "../../../data";
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 const Links = () => {
   return (

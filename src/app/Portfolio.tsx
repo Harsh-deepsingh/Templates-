@@ -4,7 +4,7 @@ import HamburgerMenu from "@/components/Portfolio/Hamburger";
 import Hero from "@/components/Portfolio/Hero";
 import Projects from "@/components/Portfolio/Projects";
 import Work from "@/components/Portfolio/Work";
-import data from "../../data/Portfolio/data";
+import data from "../../data";
 
 const Portfolio = () => {
   return (
@@ -21,23 +21,34 @@ const Portfolio = () => {
             <div className="-z-50 -rotate-45 absolute left-1/2  transform -translate-x-1/2 w-1/2 h-96 bg-gradient-radial from-Theme_blue/50 to-transparent rounded-full blur-3xl"></div>
             <Hero></Hero>
           </section>
-          {data.Work.length > 0 && (
+          {data.Work.map((work) => work.title.length > 0).at(0) && (
             <section id="work" className="h-full  ">
               <Work></Work>
             </section>
           )}
-          {data.projectData.length > 0 && (
+          {data.projectData
+            .map((projects) => projects.title.length > 0)
+            .at(0) && (
             <section id="projects" className="h-full ">
               <Projects></Projects>
             </section>
           )}
-
-          <section id="about" className="h-full ">
-            <About></About>
-          </section>
-          <section id="contact" className="h-full ">
-            <Contact></Contact>
-          </section>
+          {data.aboutData.description.length ||
+          data.aboutData.personalDetails.email ||
+          data.aboutData.personalDetails.location.length > 0 ||
+          data.aboutData.skills.map((skill) => skill.length).at(0) ? (
+            <section id="about" className="h-full ">
+              <About></About>
+            </section>
+          ) : null}
+          {data.contact.Email.length ||
+          data.contact.Github.length ||
+          data.contact.LinkedIn.length ||
+          data.contact.Twitter.length > 0 ? (
+            <section id="contact" className="h-full ">
+              <Contact></Contact>
+            </section>
+          ) : null}
         </div>
       </div>
     </>

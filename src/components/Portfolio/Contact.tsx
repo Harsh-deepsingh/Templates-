@@ -1,14 +1,14 @@
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
-import data from "../../../data/Portfolio/data";
+import data from "../../../data";
 
 const Contact = () => {
   return (
-    <footer className="dark:bg-Primary_dark p-6 mt-10 rounded-lg rounded-b-none">
+    <footer className="dark:bg-Primary_dark p-6 shadow-2xl   mt-10 rounded-lg rounded-b-none">
       <div className="flex flex-col md:flex-row justify-between items-center">
         <div className="mb-4 md:mb-0">
           <p className="text-lg font-semibold">Connect with me:</p>
           <div className="flex space-x-4 mt-2">
-            {data.contact.Github && (
+            {data.contact.Github.length > 0 && (
               <a
                 href={data.contact.Github}
                 target="_blank"
@@ -18,7 +18,7 @@ const Contact = () => {
                 <FaGithub size={24} />
               </a>
             )}
-            {data.contact.LinkedIn && (
+            {data.contact.LinkedIn.length > 0 && (
               <a
                 href={data.contact.LinkedIn}
                 target="_blank"
@@ -28,7 +28,7 @@ const Contact = () => {
                 <FaLinkedin size={24} />
               </a>
             )}
-            {data.contact.Twitter && (
+            {data.contact.Twitter.length > 0 && (
               <a
                 href={data.contact.Twitter}
                 target="_blank"
@@ -38,7 +38,7 @@ const Contact = () => {
                 <FaTwitter size={24} />
               </a>
             )}
-            {data.contact.Email && (
+            {data.contact.Email.length > 0 && (
               <a
                 href={`mailto:${data.contact.Email}`}
                 target="_blank"
@@ -53,7 +53,7 @@ const Contact = () => {
 
         <div className="text-center md:text-right">
           <p>
-            &copy; {new Date().getFullYear()} Harshdeep Singh. All rights
+            &copy; {new Date().getFullYear()} {data.Hero.name}. All rights
             reserved.
           </p>
         </div>

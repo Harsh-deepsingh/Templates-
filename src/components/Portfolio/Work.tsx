@@ -1,4 +1,4 @@
-import data from "../../../data/Portfolio/data";
+import data from "../../../data";
 
 const Work = () => {
   return (
