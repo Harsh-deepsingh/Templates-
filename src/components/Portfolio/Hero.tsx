@@ -1,5 +1,6 @@
 import Image from "next/image";
 import data from "../../../data";
+
 const Hero = () => {
   let image = false;
   if (data.Hero.image.length > 0) {
@@ -8,8 +9,8 @@ const Hero = () => {
   return (
     <>
       {data.Hero.image.length > 0 && (
-        <div className="flex gap-20 sm:gap-2 sm:flex-row flex-col mt-28 ">
-          <div className="flex flex-col justify-center w-full sm:w-1/2">
+        <div className="flex gap-20 sm:gap-2 sm:flex-row flex-col mt-10 ">
+          <div className="flex flex-col justify-center w-full sm:w-1/2 text-center md:text-start">
             <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               {data.Hero.name}
             </p>
@@ -25,7 +26,7 @@ const Hero = () => {
                 alt="my Image"
                 width={500}
                 height={500}
-                className="rounded-lg w-full h-auto"
+                className="rounded-lg w-full h-auto max-w-xs sm:max-w-md lg:max-w-lg"
               />
             </div>
           </div>

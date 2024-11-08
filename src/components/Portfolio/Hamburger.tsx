@@ -10,12 +10,15 @@ const HamburgerMenu = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    console.log(isOpen);
   };
 
   return (
     <>
-      <div className="flex flex-row justify-end w-full p-4">
+      <div
+        className={`flex flex-row justify-end w-full p-4 ${
+          isOpen ? "bg-blur" : ""
+        }`}
+      >
         <button
           onClick={toggleMenu}
           className="fixed z-50 left-0 flex flex-col justify-center items-center w-10 h-10 group outline-none"
@@ -35,8 +38,8 @@ const HamburgerMenu = () => {
             className="w-8 h-1 dark:bg-white  bg-black rounded transition-all duration-300 ease-in-out"
           />
         </button>
-        <div className="fixed flex flex-row gap-4 justify-center items-center  ">
-          <Links></Links>
+        <div className="fixed flex flex-row gap-4 justify-center items-center">
+          <Links />
         </div>
       </div>
       <AnimatePresence>
@@ -46,109 +49,114 @@ const HamburgerMenu = () => {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="h-full fixed z-50 top-0 left-0 mt-14 sm:w-2/12 w-11/12 "
+            className="h-full fixed z-50 top-0 left-0 mt-14 sm:w-2/12 w-11/12"
           >
             <ContentOfSideBar onChildClick={toggleMenu} />
           </motion.div>
         )}
       </AnimatePresence>
+
+      {isOpen && (
+        <div className="fixed inset-0 backdrop-blur-md bg-black bg-opacity-50 transition-opacity duration-500 ease-in-out"></div>
+      )}
     </>
   );
 };
+
 function ContentOfSideBar({ onChildClick }: { onChildClick: () => void }) {
   return (
-    <>
-      <div className="h-5/6 shadow-lg dark:border-none border border-slate-300 xl:text-xl lg:text-2xl  m-4 mt-0  rounded-lg font-semibold font-sans sm:text-xl text-xl w-full   bg-Primary_light dark:bg-Primary_dark  flex justify-center items-center flex-col gap-16">
-        {data.Hero.name.length > 0 && (
-          <button
+    <div className="h-5/6 shadow-lg dark:border-none border border-slate-300 xl:text-xl lg:text-2xl  m-4 mt-0 rounded-lg font-semibold font-sans sm:text-xl text-xl w-full bg-Primary_light dark:bg-Primary_dark flex justify-center items-center flex-col gap-16">
+      {data.Hero.name.length > 0 && (
+        <button
+          onClick={onChildClick}
+          className="transform hover:scale-125 transition-transform duration-100"
+        >
+          <ScrollLink
+            to="home"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer"
             onClick={onChildClick}
-            className="transform hover:scale-125 transition-transform duration-100"
           >
-            <ScrollLink
-              to="home"
-              smooth={true}
-              duration={500}
-              className="cursor-pointer"
-              onClick={onChildClick}
-            >
-              Home
-            </ScrollLink>
-          </button>
-        )}
+            Home
+          </ScrollLink>
+        </button>
+      )}
 
-        {data.Work.map((work) => work.title.length).at(0) ? (
-          <button
+      {data.Work.map((work) => work.title.length).at(0) ? (
+        <button
+          onClick={onChildClick}
+          className="transform hover:scale-125 transition-transform duration-100"
+        >
+          <ScrollLink
+            to="work"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer"
             onClick={onChildClick}
-            className="transform hover:scale-125 transition-transform duration-100"
           >
-            <ScrollLink
-              to="work"
-              smooth={true}
-              duration={500}
-              className="cursor-pointer"
-              onClick={onChildClick}
-            >
-              Work
-            </ScrollLink>
-          </button>
-        ) : null}
-        {data.projectData.map((projects) => projects.title.length).at(0) ? (
-          <button
-            onClick={onChildClick}
-            className="transform hover:scale-125 transition-transform duration-100"
-          >
-            <ScrollLink
-              to="projects"
-              smooth={true}
-              duration={500}
-              className="cursor-pointer"
-              onClick={onChildClick}
-            >
-              Projects
-            </ScrollLink>
-          </button>
-        ) : null}
+            Work
+          </ScrollLink>
+        </button>
+      ) : null}
 
-        {data.aboutData.description.length ||
-        data.aboutData.personalDetails.email ||
-        data.aboutData.personalDetails.location.length > 0 ||
-        data.aboutData.skills.map((skill) => skill.length).at(0) ? (
-          <button
+      {data.projectData.map((projects) => projects.title.length).at(0) ? (
+        <button
+          onClick={onChildClick}
+          className="transform hover:scale-125 transition-transform duration-100"
+        >
+          <ScrollLink
+            to="projects"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer"
             onClick={onChildClick}
-            className="transform hover:scale-125 transition-transform duration-100"
           >
-            <ScrollLink
-              to="about"
-              smooth={true}
-              duration={500}
-              className="cursor-pointer"
-              onClick={onChildClick}
-            >
-              About
-            </ScrollLink>
-          </button>
-        ) : null}
-        {data.contact.Email.length ||
-        data.contact.Github.length ||
-        data.contact.LinkedIn.length ||
-        data.contact.Twitter.length > 0 ? (
-          <button
+            Projects
+          </ScrollLink>
+        </button>
+      ) : null}
+
+      {data.aboutData.description.length ||
+      data.aboutData.personalDetails.email ||
+      data.aboutData.personalDetails.location.length > 0 ||
+      data.aboutData.skills.map((skill) => skill.length).at(0) ? (
+        <button
+          onClick={onChildClick}
+          className="transform hover:scale-125 transition-transform duration-100"
+        >
+          <ScrollLink
+            to="about"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer"
             onClick={onChildClick}
-            className="transform hover:scale-125 transition-transform duration-100"
           >
-            <ScrollLink
-              to="contact"
-              smooth={true}
-              duration={500}
-              className="cursor-pointer"
-              onClick={onChildClick}
-            >
-              Contact{" "}
-            </ScrollLink>
-          </button>
-        ) : null}
-      </div>
-    </>
+            About
+          </ScrollLink>
+        </button>
+      ) : null}
+
+      {data.contact.Email.length ||
+      data.contact.Github.length ||
+      data.contact.LinkedIn.length ||
+      data.contact.Twitter.length > 0 ? (
+        <button
+          onClick={onChildClick}
+          className="transform hover:scale-125 transition-transform duration-100"
+        >
+          <ScrollLink
+            to="contact"
+            smooth={true}
+            duration={500}
+            className="cursor-pointer"
+            onClick={onChildClick}
+          >
+            Contact
+          </ScrollLink>
+        </button>
+      ) : null}
+    </div>
   );
 }
 
