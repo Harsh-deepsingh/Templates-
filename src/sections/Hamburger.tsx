@@ -3,7 +3,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Links from "./Links";
 import { Link as ScrollLink } from "react-scroll";
-import data from "../../../data";
+import data from "../../data";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,7 +65,7 @@ const HamburgerMenu = () => {
 
 function ContentOfSideBar({ onChildClick }: { onChildClick: () => void }) {
   return (
-    <div className="h-5/6 shadow-lg dark:border-none border border-slate-300 xl:text-xl lg:text-2xl  m-4 mt-0 rounded-lg font-semibold font-sans sm:text-xl text-xl w-full bg-Primary_light dark:bg-Primary_dark flex justify-center items-center flex-col gap-16">
+    <div className="h-5/6 shadow-lg dark:border-none border border-slate-300 xl:text-xl lg:text-2xl  m-4 mt-0 rounded-lg font-semibold font-sans sm:text-xl text-xl w-full bg-primary_light dark:bg-primary_dark flex justify-center items-center flex-col gap-16">
       {data.Hero.name.length > 0 && (
         <button
           onClick={onChildClick}

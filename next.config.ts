@@ -14,6 +14,9 @@ const nextConfig: NextConfig = {
       {
         hostname: "static.wikia.nocookie.net",
       },
+      {
+        hostname: "avatars.githubusercontent.com",
+      },
     ],
   },
 };

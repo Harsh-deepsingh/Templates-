@@ -1,45 +1,41 @@
 const data = {
   Hero: {
-    name: "Harsh Maan",
-    des: "I'm a software developer",
+    name: "John Doe",
+    des: "Software Developer with a passion for clean code",
     image: "https://static.wikia.nocookie.net/marvelcinematicuniverse/images/9/9d/Iron_Man_Infobox.jpg/revision/latest?cb=20240802142023",
   },
   Work: [
     {
-      title: "",
-      company: "",
-      duration: "",
-      description: "",
+      title: "Software Engineer",
+      company: "Tech Corp",
+      duration: "2 years",
+      description: "Developed backend APIs.",
     },
   ],
   projectData: [
     {
-      title: "Blindly social",
-      description: "user can join with there school email or company email and they will enter in the community of users of same email domain",
-      liveLink: "https://blindlysocial.com",
-      codeLink: "https://github.com/harsh-deepsingh",
+      title: "Project A",
+      description: "A web application",
+      liveLink: "http://project-a.com",
+      codeLink: "http://github.com/project-a",
     },
   ],
   aboutData: {
-    description: "enter here some data for my about section ai",
+    description: "Passionate about technology.",
     skills: [
-      "Java",
-      "Javascript",
-      "Typescript",
-      "Docker",
-      "AWS",
-      "MongoDB",
+      "Python",
+      "JavaScript",
     ],
     personalDetails: {
-      location: "Calgary, Alberta",
-      email: "",
+      location: "New York",
+      email: "john@example.com",
     },
   },
   contact: {
-    LinkedIn: "asd",
-    Twitter: "githu.com/harsh-deepsingh",
-    Github: "",
-    Email: "",
+    LinkedIn: "john-linkedin",
+    Twitter: "john-twitter",
+    Github: "john-github",
+    Email: "john@example.com",
   },
 };
 

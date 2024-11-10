@@ -1,5 +1,6 @@
-import data from "../../../data";
-import Button from "../Button";
+import Card from "@/components/Card";
+import data from "../../data";
+import Button from "../components/Button";
 
 const Projects = () => {
   return (
@@ -9,10 +10,7 @@ const Projects = () => {
       </p>
       <div className=" grid grid-cols-1 md:grid-cols-2 gap-6">
         {data.projectData.map((project, index) => (
-          <div
-            key={index}
-            className="p-6 dark:bg-Primary_dark bg-white shadow-lg rounded-lg transition-transform hover:scale-105"
-          >
+          <Card key={index}>
             <p className="text-xl sm:text-2xl font-semibold mb-2">
               {project.title}
             </p>
@@ -39,7 +37,7 @@ const Projects = () => {
                 </a>
               )}
             </div>
-          </div>
+          </Card>
         ))}
       </div>
     </div>

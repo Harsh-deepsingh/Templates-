@@ -1,0 +1,57 @@
+import Image from "next/image";
+import data from "../../data";
+import GithubInfo from "@/components/GithubInfo";
+import Card from "@/components/Card";
+
+const Hero = async () => {
+  let image = false;
+  if (data.Hero.image.length > 0) {
+    image = true;
+  }
+  return (
+    <>
+      <div className="flex justify-center items-center">
+        {data.Hero.image.length > 0 && (
+          <div className="flex gap-20 sm:gap-2 sm:flex-row flex-col mt-10 ">
+            <div className="flex flex-col justify-center w-full sm:w-1/2 text-center md:text-start">
+              <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+                {data.Hero.name}
+              </p>
+              <p className="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl mt-6">
+                {data.Hero.des}
+              </p>
+            </div>
+            <div className=" flex justify-center ">
+              <div className="w-7/12 sm:w-3/4 lg:w-1/2 items-center flex justify-center">
+                <Image
+                  src={data.Hero.image}
+                  alt="my Image"
+                  width={500}
+                  height={500}
+                  className="rounded-lg w-full h-auto max-w-xs sm:max-w-md lg:max-w-lg"
+                />
+              </div>
+            </div>
+          </div>
+        )}
+        {!image && (
+          <div className="mt-28 text-center flex flex-col justify-center w-full sm:w-1/2 ">
+            <p className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold">
+              {data.Hero.name}
+            </p>
+            <p className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl mt-10">
+              {data.Hero.des}
+            </p>
+          </div>
+        )}
+      </div>
+      <div className="mt-10">
+        <Card>
+          <GithubInfo></GithubInfo>
+        </Card>
+      </div>
+    </>
+  );
+};
+
+export default Hero;

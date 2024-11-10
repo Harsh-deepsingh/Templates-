@@ -1,11 +1,12 @@
-import data from "../../../data";
-import Button from "../Button";
+import Card from "@/components/Card";
+import data from "../../data";
+import Button from "../components/Button";
 
 const aboutData = data.aboutData;
 
 const About = () => {
   return (
-    <div className="mt-10 p-6 dark:bg-Primary_dark rounded-lg shadow-lg hover:scale-105 transition-all duration-200">
+    <Card>
       <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
         About Me
       </p>
@@ -49,7 +50,7 @@ const About = () => {
           </ul>
         </div>
       )}
-    </div>
+    </Card>
   );
 };
 

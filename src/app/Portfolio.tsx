@@ -1,9 +1,9 @@
-import About from "@/components/Portfolio/About";
-import Contact from "@/components/Portfolio/Contact";
-import HamburgerMenu from "@/components/Portfolio/Hamburger";
-import Hero from "@/components/Portfolio/Hero";
-import Projects from "@/components/Portfolio/Projects";
-import Work from "@/components/Portfolio/Work";
+import About from "@/sections/About";
+import Contact from "@/sections/Contact";
+import HamburgerMenu from "@/sections/Hamburger";
+import Hero from "@/sections/Hero";
+import Projects from "@/sections/Projects";
+import Work from "@/sections/Work";
 import data from "../../data";
 
 const Portfolio = () => {
