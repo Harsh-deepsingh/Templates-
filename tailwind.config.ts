@@ -16,8 +16,8 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary_dark: "#212121",
-        primary_light: " #94a3b8",
-        //Theme_blue: "#00AEFF",
+        primary_light: " white",
+        theme_border: "#00AEFF",
         "theme-secondary": "#9e2e3b",
         //make a condition render that if the theme-secondary is darker shared then make the text light
       },
