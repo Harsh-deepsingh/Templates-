@@ -1,4 +1,5 @@
 type repo = {
+  html_url: Url;
   name:
     | string
     | number

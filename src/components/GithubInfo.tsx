@@ -11,9 +11,11 @@ const GithubInfo = async () => {
 
   return (
     <div className="flex gap-2 w-full  ">
-      <Link href={githubInfo.html_url} target="blank" className="w-full">
-        <div className="flex justify-between items-center mb-3">
-          <FiGithub className="text-lg"></FiGithub>
+      <div className="w-full">
+        <div className="flex justify-between items-center mb-3 w-6 h-6">
+          <Link href={githubInfo.html_url} target="blank" className="w-full">
+            <FiGithub className="text-lg hover:text-2xl transition-all duration-150"></FiGithub>
+          </Link>
         </div>
 
         <div className="flex gap-3 flex-col w-full ">
@@ -44,37 +46,41 @@ const GithubInfo = async () => {
                 </p>
               </div>
             </div>
-
             <div className="w-full p-8 border rounded-xl border-gray-600 gap-8 flex flex-col">
-              <div className="flex  items-center justify-center ">
-                <GithubGraph></GithubGraph>
-              </div>
-              <ul className="grid grid-cols-1  w-full gap-3 text-xs sm:text-sm md:text-md ">
-                <li className="flex gap-2 justify-between">
-                  <p className="text-gray-600 dark:text-gray-400">
-                    {" "}
-                    Public repos: {githubInfo.public_repos}
-                  </p>
+              <Link href={githubInfo.html_url} target="blank">
+                <div className="flex flex-col gap-4">
+                  <div className="flex  items-center justify-center ">
+                    <GithubGraph></GithubGraph>
+                  </div>
+                  <ul className="grid grid-cols-1  w-full gap-3 text-xs sm:text-sm md:text-md ">
+                    <li className="flex gap-2 justify-between">
+                      <p className="text-gray-600 dark:text-gray-400">
+                        {" "}
+                        Public repos: {githubInfo.public_repos}
+                      </p>
 
-                  <p className="text-gray-600 dark:text-gray-400 flex  items-center gap-2">
-                    <FaLocationArrow></FaLocationArrow> {githubInfo.location}
-                  </p>
-                </li>
-                <li className="flex gap-2 justify-between">
-                  <p className="text-gray-600 dark:text-gray-400">
-                    Followers: {githubInfo.followers}
-                  </p>
+                      <p className="text-gray-600 dark:text-gray-400 flex  items-center gap-2">
+                        <FaLocationArrow></FaLocationArrow>{" "}
+                        {githubInfo.location}
+                      </p>
+                    </li>
+                    <li className="flex gap-2 justify-between">
+                      <p className="text-gray-600 dark:text-gray-400">
+                        Followers: {githubInfo.followers}
+                      </p>
 
-                  <p className="text-gray-600 dark:text-gray-400 ">
-                    Following: {githubInfo.following}
-                  </p>
-                </li>
-              </ul>
+                      <p className="text-gray-600 dark:text-gray-400 ">
+                        Following: {githubInfo.following}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </Link>
             </div>
           </div>
           <GithubRepos></GithubRepos>
         </div>
-      </Link>
+      </div>
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   ReactElement,
   JSXElementConstructor,
@@ -27,7 +28,9 @@ const GithubRepos = async () => {
               <div className="flex gap-3 justify-start items-center ">
                 <FaBook className="text-gray-600 dark:text-gray-400"></FaBook>
                 <p className="text-lg font-semibold text-blue-500">
-                  {repo.name}
+                  <Link href={repo.html_url} target="blank">
+                    {repo.name}
+                  </Link>
                 </p>
                 <div className="flex gap-1">
                   <FaDotCircle className="w-2 text-gray-600 dark:text-gray-400"></FaDotCircle>
