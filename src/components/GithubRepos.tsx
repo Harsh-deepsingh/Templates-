@@ -1,12 +1,5 @@
 import Link from "next/link";
 import {
-  ReactElement,
-  JSXElementConstructor,
-  ReactNode,
-  ReactPortal,
-  AwaitedReactNode,
-} from "react";
-import {
   FaBook,
   FaDotCircle,
   FaEye,
@@ -14,9 +7,11 @@ import {
   FaRegStar,
 } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
+import data from "../../data";
 
 const GithubRepos = async () => {
-  const res = await fetch("https://api.github.com/users/Harsh-deepsingh/repos");
+  const username = data.Github.github_username;
+  const res = await fetch(`https://api.github.com/users/${username}/repos`);
   const repoInfo = await res.json();
 
   return (

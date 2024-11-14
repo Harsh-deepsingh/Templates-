@@ -1,7 +1,6 @@
 import Image from "next/image";
 import data from "../../data";
-import GithubInfo from "@/components/GithubInfo";
-import Card from "@/components/Card";
+import TypeWriter from "@/components/TypeWriter";
 
 const Hero = async () => {
   let image = false;
@@ -20,15 +19,16 @@ const Hero = async () => {
               <p className="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl mt-6">
                 {data.Hero.des}
               </p>
+              <TypeWriter words={data.Hero.words}></TypeWriter>
             </div>
             <div className=" flex justify-center ">
-              <div className="w-7/12 sm:w-3/4 lg:w-1/2 items-center flex justify-center">
+              <div className="overflow-hidden transition-all duration-700 hover:scale-95 rounded-lg w-7/12 sm:w-3/4 lg:w-1/2 items-center flex justify-center">
                 <Image
                   src={data.Hero.image}
                   alt="my Image"
                   width={500}
                   height={500}
-                  className="rounded-lg w-full h-auto max-w-xs sm:max-w-md lg:max-w-lg"
+                  className="transition-all object-cover duration-700 hover:scale-125 rounded-lg w-full h-auto max-w-xs sm:max-w-md lg:max-w-lg "
                 />
               </div>
             </div>
@@ -44,11 +44,6 @@ const Hero = async () => {
             </p>
           </div>
         )}
-      </div>
-      <div className="mt-10">
-        <Card>
-          <GithubInfo></GithubInfo>
-        </Card>
       </div>
     </>
   );

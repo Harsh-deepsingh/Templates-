@@ -7,6 +7,7 @@ const Work = () => {
       <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
         My Work Experience
       </p>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {data.Work.map((work, index) => (
           <>

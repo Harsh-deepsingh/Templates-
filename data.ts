@@ -2,7 +2,12 @@ const data = {
   Hero: {
     name: "John Doe",
     des: "Software Developer with a passion for clean code",
-    image: "https://static.wikia.nocookie.net/marvelcinematicuniverse/images/9/9d/Iron_Man_Infobox.jpg/revision/latest?cb=20240802142023",
+    image:
+      "https://static.wikia.nocookie.net/marvelcinematicuniverse/images/9/9d/Iron_Man_Infobox.jpg/revision/latest?cb=20240802142023",
+    words: ["Eat", "Sleep", "Code", "Repeat!"],
+  },
+  Github: {
+    github_username: "hkirat",
   },
   Work: [
     {
@@ -22,10 +27,7 @@ const data = {
   ],
   aboutData: {
     description: "Passionate about technology.",
-    skills: [
-      "Python",
-      "JavaScript",
-    ],
+    skills: ["Python", "JavaScript"],
     personalDetails: {
       location: "New York",
       email: "john@example.com",

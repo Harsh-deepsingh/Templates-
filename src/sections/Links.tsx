@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 const Links = () => {
   return (
     <>
-      <div className="flex flex-row gap-3 justify-end ">
+      <div className="flex flex-row gap-5 md:gap-2 justify-end ">
         {data.contact.Github && (
           <a
             href={data.contact.Github}

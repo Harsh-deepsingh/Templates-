@@ -17,6 +17,12 @@ const nextConfig: NextConfig = {
       {
         hostname: "avatars.githubusercontent.com",
       },
+      {
+        hostname: "cdn.simpleicons.org",
+      },
+      {
+        hostname: "images.unsplash.com",
+      },
     ],
   },
 };

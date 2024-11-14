@@ -8,7 +8,7 @@ const Card = ({
   return (
     <div
       key={key}
-      className="bg-primary_light dark:bg-primary_dark p-6 shadow-lg rounded-lg  transition-transform hover:scale-105 z-10"
+      className="bg-primary_light dark:bg-primary_dark p-6 shadow-lg rounded-lg  transition-transform "
     >
       {children}
     </div>
